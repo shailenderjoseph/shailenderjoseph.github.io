@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shailender Joseph</title>
+<meta name="author" content="Shailender Joseph">
+<meta name="description" content="Ph.D. candidate in Information Systems at the Naveen Jindal School of Management, UT Dallas. Research on digital marketplaces, real-time bidding, and platform design.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#F6F5F1;
+    --paper-2:#EFEDE6;
+    --ink:#1A1F2B;
+    --ink-soft:#5D6470;
+    --rule:#DCD9CF;
+    --accent:#2F5D50;
+    --accent-soft:#7FA396;
+    --display:"Newsreader",Georgia,"Times New Roman",serif;
+    --body:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+    --wrap:820px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:16.5px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(47,93,80,.28);transition:border-color .18s ease,color .18s ease}
+  a:hover{border-bottom-color:var(--accent)}
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+  .wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px}
+
+  /* ---------- eyebrow / mono utility ---------- */
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;overflow:hidden;padding:76px 0 54px;border-bottom:1px solid var(--rule)}
+  .curve{
+    position:absolute;right:-40px;top:34px;width:430px;height:300px;
+    pointer-events:none;opacity:.5;
+  }
+  .curve-label{font-family:var(--mono);font-size:9.5px;fill:var(--accent-soft);letter-spacing:.08em}
+  .curve-path{
+    fill:none;stroke:var(--accent);stroke-width:1.6;stroke-linecap:round;
+    stroke-dasharray:620;stroke-dashoffset:620;
+    animation:draw 2.2s cubic-bezier(.65,.02,.35,1) .35s forwards;
+  }
+  .curve-axis{stroke:var(--accent-soft);stroke-width:.75;opacity:.5}
+  .curve-dot{fill:var(--accent);opacity:0;animation:pop .5s ease 2.3s forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  @keyframes pop{to{opacity:1}}
+
+  .hero-inner{position:relative;z-index:2;display:flex;gap:34px;align-items:flex-start}
+  .portrait{flex:0 0 138px;width:138px}
+  .portrait img{width:138px;height:138px;object-fit:cover;border-radius:3px;display:block;filter:grayscale(.18)}
+  .portrait-fallback{
+    width:138px;height:138px;border-radius:3px;
+    background:var(--paper-2);border:1px solid var(--rule);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--display);font-size:40px;color:var(--accent-soft);
+  }
+  h1{
+    font-family:var(--display);font-weight:400;
+    font-size:clamp(38px,6vw,54px);line-height:1.04;
+    margin:2px 0 10px;letter-spacing:-.015em;
+  }
+  .role{font-size:15px;color:var(--ink-soft);margin:0 0 20px;max-width:44ch}
+  .role strong{color:var(--ink);font-weight:500}
+  .bio{max-width:62ch;margin:0 0 22px}
+  .bio em{font-style:italic;font-family:var(--display);font-size:1.06em}
+
+  .links{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin-top:4px}
+  .chip{
+    font-family:var(--mono);font-size:12px;letter-spacing:.02em;
+    padding:6px 13px;border:1px solid var(--rule);border-radius:100px;
+    background:transparent;color:var(--ink-soft);
+    transition:border-color .18s ease,color .18s ease,background .18s ease;
+  }
+  a.chip{border-bottom:1px solid var(--rule)}
+  a.chip:hover{color:var(--accent);border-color:var(--accent-soft);background:rgba(47,93,80,.05)}
+  a.chip-primary{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+  a.chip-primary:hover{background:#26493F;border-color:#26493F;color:var(--paper)}
+
+  /* ---------- sections ---------- */
+  .section{padding:52px 0;border-bottom:1px solid var(--rule)}
+  .section:last-of-type{border-bottom:none}
+  .section-head{margin-bottom:26px}
+  h2{
+    font-family:var(--display);font-weight:400;font-size:26px;
+    margin:8px 0 0;letter-spacing:-.01em;
+  }
+  .section-note{font-size:14.5px;color:var(--ink-soft);margin:8px 0 0;max-width:60ch}
+
+  /* ---------- papers ---------- */
+  .paper{padding:22px 0;border-top:1px solid var(--rule)}
+  .paper:first-of-type{border-top:none;padding-top:4px}
+  .status{
+    display:inline-block;font-family:var(--mono);font-size:10.5px;
+    letter-spacing:.12em;text-transform:uppercase;
+    color:var(--ink-soft);margin-bottom:7px;
+  }
+  .status-jmp{color:var(--accent);font-weight:500}
+  .status-jmp::before{content:"◆ ";font-size:9px}
+  .paper h3{
+    font-family:var(--display);font-weight:400;font-size:20.5px;
+    line-height:1.3;margin:0 0 7px;letter-spacing:-.005em;
+  }
+  .authors{font-size:14px;color:var(--ink-soft);margin:0 0 9px}
+  .summary{font-size:15px;margin:0 0 9px;max-width:66ch}
+  .venues{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);margin:0;line-height:1.7}
+  .venues span{white-space:nowrap}
+
+  /* ---------- figure ---------- */
+  .figure{margin:16px 0 2px}
+  .figure img{
+    width:100%;height:auto;display:block;border-radius:3px;
+    border:1px solid var(--rule);
+  }
+  .figure figcaption{
+    font-family:var(--mono);font-size:11px;color:var(--ink-soft);
+    margin-top:8px;line-height:1.6;
+  }
+
+  /* ---------- teaching / background ---------- */
+  .rows{margin:0;padding:0;list-style:none}
+  .row{display:flex;gap:20px;padding:13px 0;border-top:1px solid var(--rule);font-size:15px}
+  .row:first-child{border-top:none}
+  .row-key{flex:0 0 132px;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);padding-top:3px}
+  .row-val{flex:1;min-width:0}
+  .row-val strong{font-weight:500}
+  .row-val .sub{display:block;color:var(--ink-soft);font-size:14px;margin-top:2px}
+
+  /* ---------- footer ---------- */
+  footer{padding:34px 0 46px;font-size:13.5px;color:var(--ink-soft)}
+  footer p{margin:0 0 6px}
+
+  /* ---------- responsive ---------- */
+  @media(max-width:720px){
+    .curve{width:280px;height:200px;right:-70px;top:10px;opacity:.32}
+    .hero{padding:52px 0 40px}
+    .hero-inner{flex-direction:column;gap:22px}
+    .portrait,.portrait img,.portrait-fallback{width:104px;flex-basis:auto}
+    .portrait img,.portrait-fallback{height:104px}
+    .row{flex-direction:column;gap:3px}
+    .row-key{flex-basis:auto;padding-top:0}
+  }
+  @media(prefers-reduced-motion:reduce){
+    .curve-path{animation:none;stroke-dashoffset:0}
+    .curve-dot{animation:none;opacity:1}
+    *{transition:none!important}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <!-- Signature: a win-curve — the object at the center of my research.
+       Bid on the x-axis, probability of winning on the y-axis. -->
+  <svg class="curve" viewBox="0 0 430 300" aria-hidden="true">
+    <line class="curve-axis" x1="40" y1="250" x2="400" y2="250"/>
+    <line class="curve-axis" x1="40" y1="250" x2="40" y2="40"/>
+    <path class="curve-path" d="M40 244 C 150 240, 196 212, 232 150 C 266 92, 300 58, 400 52"/>
+    <circle class="curve-dot" cx="232" cy="150" r="3"/>
+    <text class="curve-label" x="374" y="268">bid</text>
+    <text class="curve-label" x="14" y="44">p(b)</text>
+  </svg>
+
+  <div class="wrap hero-inner">
+    <div class="portrait">
+      <!-- Drop a square photo at assets/profile.jpg to replace the initials. -->
+      <img src="assets/profile.jpg" alt="Shailender Joseph"
+           onerror="this.outerHTML='&lt;div class=\'portrait-fallback\'&gt;SJ&lt;/div&gt;'">
+    </div>
+    <div>
+      <p class="eyebrow">Naveen Jindal School of Management &middot; UT Dallas</p>
+      <h1>Shailender Joseph</h1>
+      <p class="role">Ph.D. Candidate in <strong>Information Systems</strong>, advised by Prof. Vijay Mookerjee. On the academic job market, 2026&ndash;27.</p>
+      <p class="bio">I study the design and operation of digital marketplaces &mdash; settings where a platform allocates scarce resources and sets fees while advertisers, sellers, and buyers respond strategically. My current work spans real-time bidding in digital advertising, the comparative design of closed platforms and open commerce networks, cost-effective routing in AI systems, and cyberinsurance. I build analytical and computational models using game theory, optimization, stochastic control, and machine learning.</p>
+      <div class="links">
+        <a class="chip chip-primary" href="assets/Shailender_Joseph_CV.pdf">Curriculum vitae</a>
+        <a class="chip" href="mailto:shailender.joseph@utdallas.edu">Email</a>
+        <a class="chip" href="https://scholar.google.co.in/citations?user=uz5TdrsAAAAJ&amp;hl=en">Google Scholar</a>
+        <a class="chip" href="https://www.linkedin.com/in/shailender-joseph/">LinkedIn</a>
+        <a class="chip" href="https://github.com/shailenderjoseph">GitHub</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+  <section class="section wrap">
+    <div class="section-head">
+      <p class="eyebrow">Research</p>
+      <h2>Working papers</h2>
+      <p class="section-note">Digital advertising markets, platform and network design, and the economics of risk and cost in AI-enabled systems.</p>
+    </div>
+
+    <article class="paper">
+      <span class="status status-jmp">Job market paper</span>
+      <h3>Competing for Space and Participation: Dynamic Control of Digital Out-of-Home RTB Platforms</h3>
+      <p class="authors">with Ganesh Janakiraman and Vijay Mookerjee &middot; manuscript in preparation</p>
+      <p class="summary">Digital billboards sell ad slots by real-time auction, but their audiences are hyper-local: the ads on a screen shape who bids for it next. I characterize the optimal policy for a screen owner who must split scarce inventory between auction revenue today and self-advertising that recruits tomorrow's bidders, and calibrate the model on transaction-level auction data.</p>
+    </article>
+
+    <article class="paper">
+      <span class="status">Submitted &middot; Decision Sciences</span>
+      <h3>Win-Curves in Real-Time Bidding: A Micro-Foundation</h3>
+      <p class="authors">with Milind Dawande, Ganesh Janakiraman, and Vijay Mookerjee</p>
+      <p class="summary">The win-curve maps a bid to the probability of winning an impression, and nearly every bidding algorithm takes it as given. I derive it from primitives for first-price auctions with budget-constrained bidders, give a stable procedure to compute it, and show that budget-aware reserve prices recover revenue a budget-agnostic policy leaves behind.</p>
+      <p class="venues"><span>CIST 2024</span> &middot; <span>INFORMS 2024</span> &middot; <span>Big XII+ MIS Research Symposium 2025</span> &middot; <span>POMS 2025</span></p>
+      <figure class="figure">
+        <img src="assets/poster.jpg" alt="Shailender Joseph presenting the Win-Curves poster at the INFORMS Annual Meeting">
+        <figcaption>Presenting this work at the INFORMS Annual Meeting.</figcaption>
+      </figure>
+    </article>
+
+    <article class="paper">
+      <span class="status">Working paper</span>
+      <h3>Reimagining Digital Markets: Evaluating Platform Dominance and Network Alternatives</h3>
+      <p class="authors">with Kai Sun, Ganesh Janakiraman, and Vijay Mookerjee</p>
+      <p class="summary">India's ONDC splits the functions of an e-commerce platform into independent buyer-side and seller-side apps. I show that decoupling alone leaves everyone worse off through double marginalization &mdash; and that the gains appear only when buyer-app entry stays open and sellers can run their own seller apps.</p>
+      <p class="venues"><span>CIST 2025</span> &middot; <span>INFORMS 2025</span> &middot; <span>DSI 2025</span></p>
+    </article>
+
+    <article class="paper">
+      <span class="status">Analysis underway</span>
+      <h3>Making Cyberinsurance Accessible: Design and Evaluation of a Novel Approach to Determine Cyberinsurance Premiums</h3>
+      <p class="authors">with Ganesh Janakiraman and Vijay Mookerjee</p>
+      <p class="summary">Firms often absorb a breach rather than file a claim, fearing reputational damage. I ask whether an insurer that prices with this claiming behavior in mind can lower what firms pay while protecting its own revenue &mdash; making coverage accessible to firms currently priced out.</p>
+    </article>
+
+    <article class="paper">
+      <span class="status">In progress</span>
+      <h3>Retrieve or Reason? Cost-Effective Routing in Hybrid AI Chatbots</h3>
+      <p class="authors">with Aditya Karanam, Ganesh Janakiraman, and Vijay Mookerjee</p>
+      <p class="summary">Answering a user query by retrieval is cheap; reasoning with a large model is accurate but costly. This project studies how a chatbot operator should route between them to balance service quality against the cost of serving.</p>
+    </article>
+  </section>
+
+  <section class="section wrap">
+    <div class="section-head">
+      <p class="eyebrow">Teaching</p>
+      <h2>In the classroom</h2>
+    </div>
+    <ul class="rows">
+      <li class="row">
+        <div class="row-key">Instructor</div>
+        <div class="row-val">
+          <strong>ITSS 4381 &mdash; Object-Oriented Programming with Python</strong>
+          <span class="sub">Undergraduate core, full responsibility. Fall 2024, Fall 2025, Summer 2026. Student evaluation 4.75 / 5.00 (Fall 2024).</span>
+        </div>
+      </li>
+      <li class="row">
+        <div class="row-key">Assistant</div>
+        <div class="row-val">
+          <strong>Graduate analytics curriculum</strong>
+          <span class="sub">Applied Natural Language Processing &middot; Applied Deep Learning &middot; Applied Machine Learning &middot; Special Topics in Business Analytics &middot; Managing IT in the Analytics Age &middot; Systems Analysis and Project Management</span>
+        </div>
+      </li>
+      <li class="row">
+        <div class="row-key">Interests</div>
+        <div class="row-val">
+          <strong>Programming, applied machine learning, business analytics, AI in business</strong>
+          <span class="sub">And new electives on digital advertising markets and auctions.</span>
+        </div>
+      </li>
+    </ul>
+  </section>
+
+  <section class="section wrap">
+    <div class="section-head">
+      <p class="eyebrow">Before this</p>
+      <h2>A second career</h2>
+      <p class="section-note">I came to Information Systems from the laboratory bench, which is why I like problems that need both a model and data.</p>
+    </div>
+    <ul class="rows">
+      <li class="row">
+        <div class="row-key">2019 &ndash; 2021</div>
+        <div class="row-val"><strong>M.Sc. in Data Science</strong><span class="sub">Chennai Mathematical Institute</span></div>
+      </li>
+      <li class="row">
+        <div class="row-key">2017 &ndash; 2019</div>
+        <div class="row-val"><strong>Scientist, Professional Development Program</strong><span class="sub">Pfizer Healthcare India, Chennai</span></div>
+      </li>
+      <li class="row">
+        <div class="row-key">2011 &ndash; 2018</div>
+        <div class="row-val"><strong>Ph.D. in Drug Delivery and Pharmacokinetics</strong><span class="sub">BITS-Pilani, Hyderabad &middot; five journal publications</span></div>
+      </li>
+    </ul>
+  </section>
+</main>
+
+<footer class="wrap">
+  <p>Best reached by email for academic inquiries or collaboration: <a href="mailto:shailender.joseph@utdallas.edu">shailender.joseph@utdallas.edu</a></p>
+  <p>&copy; 2026 Shailender Joseph. Hosted on GitHub Pages.</p>
+</footer>
+
+</body>
+</html>
