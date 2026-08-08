@@ -11,13 +11,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;0,6..72,500;1,6..72,300;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root{
-    --paper:#F6F5F1;
-    --paper-2:#EFEDE6;
-    --ink:#1A1F2B;
-    --ink-soft:#5D6470;
-    --rule:#DCD9CF;
-    --accent:#2F5D50;
-    --accent-soft:#7FA396;
+    --paper:#F8F7F3;
+    --paper-2:#EEEAE1;
+    --panel:#FCFBF8;
+    --ink:#111827;
+    --ink-soft:#111827;
+    --rule:#C9C5B8;
+    --accent:#1F5A50;
+    --accent-dark:#15443D;
+    --accent-soft:#8FB0A5;
+    --accent-pale:#E6EFEA;
     --display:"Newsreader",Georgia,"Times New Roman",serif;
     --body:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
     --mono:"IBM Plex Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
@@ -34,27 +37,32 @@
     line-height:1.62;
     -webkit-font-smoothing:antialiased;
   }
-  a{color:var(--accent);text-decoration:none;border-bottom:1px solid rgba(47,93,80,.28);transition:border-color .18s ease,color .18s ease}
-  a:hover{border-bottom-color:var(--accent)}
+  a{color:var(--accent-dark);text-decoration:none;border-bottom:1px solid rgba(21,68,61,.34);transition:border-color .18s ease,color .18s ease,background .18s ease}
+  a:hover{color:var(--accent);border-bottom-color:var(--accent)}
   a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
   .wrap{max-width:var(--wrap);margin:0 auto;padding:0 28px}
 
   /* ---------- eyebrow / mono utility ---------- */
   .eyebrow{
     font-family:var(--mono);
+    font-weight:500;
     font-size:11px;
     letter-spacing:.14em;
     text-transform:uppercase;
-    color:var(--ink-soft);
+    color:var(--accent-dark);
   }
 
   /* ---------- hero ---------- */
-  .hero{position:relative;overflow:hidden;padding:76px 0 54px;border-bottom:1px solid var(--rule)}
+  .hero{
+    position:relative;overflow:hidden;padding:76px 0 54px;
+    border-bottom:1px solid var(--rule);
+    background:linear-gradient(180deg,var(--panel) 0%,var(--paper) 100%);
+  }
   .curve{
     position:absolute;right:-40px;top:34px;width:430px;height:300px;
-    pointer-events:none;opacity:.5;
+    pointer-events:none;opacity:.38;
   }
-  .curve-label{font-family:var(--mono);font-size:9.5px;fill:var(--accent-soft);letter-spacing:.08em}
+  .curve-label{font-family:var(--mono);font-size:9.5px;fill:var(--accent);opacity:.8;letter-spacing:.08em}
   .curve-path{
     fill:none;stroke:var(--accent);stroke-width:1.6;stroke-linecap:round;
     stroke-dasharray:620;stroke-dashoffset:620;
@@ -79,30 +87,33 @@
     font-size:clamp(38px,6vw,54px);line-height:1.04;
     margin:2px 0 10px;letter-spacing:-.015em;
   }
-  .role{font-size:15px;color:var(--ink-soft);margin:0 0 20px;max-width:64ch;line-height:1.5}
+  .role{font-size:15px;color:var(--ink-soft);margin:0 0 20px;max-width:64ch;line-height:1.55}
   .role strong{color:var(--ink);font-weight:500}
-  .bio{max-width:64ch;margin:0 0 22px;text-align:justify}
+  .bio{max-width:64ch;margin:0 0 22px;text-align:justify;color:var(--ink)}
   .bio em{font-style:italic;font-family:var(--display);font-size:1.06em}
 
   .links{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin-top:4px}
   .chip{
-    font-family:var(--mono);font-size:12px;letter-spacing:.02em;
-    padding:6px 13px;border:1px solid var(--rule);border-radius:100px;
-    background:transparent;color:var(--ink-soft);
+    font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.02em;
+    padding:6px 13px;border:1px solid #AEB7B3;border-radius:100px;
+    background:rgba(255,255,255,.34);color:var(--ink-soft);
     transition:border-color .18s ease,color .18s ease,background .18s ease;
   }
   a.chip{border-bottom:1px solid var(--rule)}
-  a.chip:hover{color:var(--accent);border-color:var(--accent-soft);background:rgba(47,93,80,.05)}
-  a.chip-primary{background:var(--accent);border-color:var(--accent);color:var(--paper)}
-  a.chip-primary:hover{background:#26493F;border-color:#26493F;color:var(--paper)}
+  a.chip:hover{color:var(--accent-dark);border-color:var(--accent);background:var(--accent-pale)}
+  a.chip-primary{
+    background:var(--accent-dark);border-color:var(--accent-dark);color:#FFFFFF;
+    box-shadow:0 1px 0 rgba(17,24,39,.08);
+  }
+  a.chip-primary:hover{background:var(--accent);border-color:var(--accent);color:#FFFFFF}
 
   /* ---------- sections ---------- */
   .section{padding:52px 0;border-bottom:1px solid var(--rule)}
   .section:last-of-type{border-bottom:none}
   .section-head{margin-bottom:26px}
   h2{
-    font-family:var(--display);font-weight:400;font-size:26px;
-    margin:8px 0 0;letter-spacing:-.01em;
+    font-family:var(--display);font-weight:500;font-size:27px;
+    margin:8px 0 0;letter-spacing:-.01em;color:var(--ink);
   }
   .section-note{font-size:14.5px;color:var(--ink-soft);margin:8px 0 0;max-width:60ch}
 
@@ -110,19 +121,23 @@
   .paper{padding:22px 0;border-top:1px solid var(--rule)}
   .paper:first-of-type{border-top:none;padding-top:4px}
   .status{
-    display:inline-block;font-family:var(--mono);font-size:10.5px;
-    letter-spacing:.12em;text-transform:uppercase;
-    color:var(--ink-soft);margin-bottom:7px;
+    display:inline-block;font-family:var(--mono);font-weight:500;font-size:10.5px;
+    letter-spacing:.10em;text-transform:uppercase;
+    color:var(--accent-dark);margin-bottom:9px;
+    padding:4px 8px;border:1px solid #B8C9C2;border-radius:999px;
+    background:var(--accent-pale);
   }
-  .status-jmp{color:var(--accent);font-weight:500}
-  .status-jmp::before{content:"◆ ";font-size:9px}
+  .status-jmp{
+    color:#FFFFFF;background:var(--accent-dark);border-color:var(--accent-dark);font-weight:500;
+  }
+  .status-jmp::before{content:"◆ ";font-size:8px}
   .paper h3{
     font-family:var(--display);font-weight:400;font-size:20.5px;
     line-height:1.3;margin:0 0 7px;letter-spacing:-.005em;
   }
   .authors{font-size:14px;color:var(--ink-soft);margin:0 0 9px}
-  .summary{font-size:15px;margin:0 0 9px;max-width:66ch}
-  .venues{font-family:var(--mono);font-size:11.5px;color:var(--ink-soft);margin:0;line-height:1.7}
+  .summary{font-size:15px;margin:0 0 9px;max-width:66ch;color:var(--ink)}
+  .venues{font-family:var(--mono);font-weight:500;font-size:11.5px;color:var(--accent-dark);margin:0;line-height:1.7}
   .venues span{white-space:nowrap}
 
   /* ---------- figure ---------- */
@@ -132,7 +147,7 @@
     border:1px solid var(--rule);
   }
   .figure figcaption{
-    font-family:var(--mono);font-size:11px;color:var(--ink-soft);
+    font-family:var(--mono);font-weight:500;font-size:11px;color:var(--ink-soft);
     margin-top:8px;line-height:1.6;
   }
 
@@ -140,13 +155,13 @@
   .rows{margin:0;padding:0;list-style:none}
   .row{display:flex;gap:20px;padding:13px 0;border-top:1px solid var(--rule);font-size:15px}
   .row:first-child{border-top:none}
-  .row-key{flex:0 0 132px;font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink-soft);padding-top:3px}
+  .row-key{flex:0 0 132px;font-family:var(--mono);font-weight:600;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-dark);padding-top:3px}
   .row-val{flex:1;min-width:0}
   .row-val strong{font-weight:500}
   .row-val .sub{display:block;color:var(--ink-soft);font-size:14px;margin-top:2px}
 
   /* ---------- footer ---------- */
-  footer{padding:34px 0 46px;font-size:13.5px;color:var(--ink-soft)}
+  footer{padding:34px 0 46px;font-size:13.5px;color:var(--ink-soft);border-top:1px solid var(--rule)}
   footer p{margin:0 0 6px}
 
   /* ---------- responsive ---------- */
@@ -213,7 +228,7 @@
 
     <article class="paper">
       <span class="status status-jmp">Job market paper <span style="font-size:9px">&#9670;</span> manuscript in preparation</span>
-      <h3>Competing for Space and Participation: Dynamic Control of Digital Out-of-Home RTB Platforms</h3>
+      <h3>Competing for Space and Participation: Dynamic Bidder Management in Digital Out-of-Home RTB Platforms</h3>
       <p class="authors">with Ganesh Janakiraman and Vijay Mookerjee</p>
       <p class="summary">Digital billboards sell ad slots by real-time auction, but their audiences are hyper-local: the ads on a screen shape who bids for it next. I characterize the optimal policy for a screen owner who must split scarce inventory between auction revenue today and self-advertising that will attract future bidders, and calibrate the model on transaction-level auction data.</p>
     </article>
