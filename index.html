@@ -108,22 +108,51 @@
   a.chip-primary:hover{background:var(--accent);border-color:var(--accent);color:#FFFFFF}
 
   /* ---------- sections ---------- */
-  .section{padding:52px 0;border-bottom:1px solid var(--rule)}
+  .section{padding:52px 0 30px;border-bottom:1px solid var(--rule)}
   .section:last-of-type{border-bottom:none}
   .section-head{margin-bottom:26px}
+  .wip-block{margin-top:16px;margin-bottom:8px;border-bottom:0}
   h2{
-    font-family:var(--display);font-weight:500;font-size:27px;
-    margin:8px 0 0;letter-spacing:-.01em;color:var(--ink);
+    font-family:var(--display);
+    color:var(--ink);
+  }
+  .subsection-title{
+    font-family:var(--display);
+    font-weight:500;
+    font-size:21px;
+    line-height:1.2;
+    margin:6px 0 0;
+    letter-spacing:-.005em;
+    color:var(--ink);
+  }
+  .section-title{
+    font-family:var(--display);
+    font-weight:500;
+    font-size:31px;
+    line-height:1.05;
+    letter-spacing:-.01em;
+    text-transform:none;
+    color:var(--ink);
+    margin:0;
+  }
+  .major-heading{
+    font-size:31px;
+    line-height:1.05;
+    letter-spacing:-.01em;
+    margin:0;
   }
   .section-note{font-size:14.5px;color:var(--ink-soft);margin:8px 0 0;max-width:60ch}
 
   /* ---------- papers ---------- */
-  .paper{padding:22px 0;border-top:1px solid var(--rule)}
-  .paper:first-of-type{border-top:none;padding-top:4px}
+  .paper{padding:20px 0;border-top:1px solid var(--rule)}
+  .paper:first-of-type{border-top:none;padding-top:6px}
+  .subsection-block + .paper{border-top:none;padding-top:6px}
+  .paper:last-child{padding-bottom:0}
+  .paper.wip-first-paper{border-top:0 !important;padding-top:6px}
   .status{
     display:inline-block;font-family:var(--mono);font-weight:500;font-size:10.5px;
     letter-spacing:.10em;text-transform:uppercase;
-    color:var(--accent-dark);margin-bottom:9px;
+    color:var(--accent-dark);margin:0 0 8px;
     padding:4px 8px;border:1px solid #B8C9C2;border-radius:999px;
     background:var(--accent-pale);
   }
@@ -133,15 +162,19 @@
   .status-jmp::before{content:"◆ ";font-size:8px}
   .paper h3{
     font-family:var(--display);font-weight:400;font-size:20.5px;
-    line-height:1.3;margin:0 0 7px;letter-spacing:-.005em;
+    line-height:1.3;margin:0 0 6px;letter-spacing:-.005em;
   }
-  .authors{font-size:14px;color:var(--ink-soft);margin:0 0 9px}
-  .summary{font-size:15px;margin:0 0 9px;max-width:66ch;color:var(--ink)}
-  .venues{font-family:var(--mono);font-weight:500;font-size:11.5px;color:var(--accent-dark);margin:0;line-height:1.7}
+  .authors{font-size:14px;color:var(--ink-soft);margin:0 0 7px;line-height:1.5}
+  .summary{font-size:15px;margin:0 0 9px;max-width:66ch;color:var(--ink);text-align:justify}
+  .venues{font-family:var(--mono);font-weight:500;font-size:11.5px;color:var(--accent-dark);margin:0;line-height:1.55}
   .venues span{white-space:nowrap}
 
   /* ---------- figure ---------- */
-  .figure{margin:16px 0 2px}
+  .figure{
+    margin:14px 0 2px;
+    padding-bottom:20px;
+    border-bottom:1px solid var(--rule);
+  }
   .figure img{
     width:100%;height:auto;display:block;border-radius:3px;
     border:1px solid var(--rule);
@@ -155,6 +188,7 @@
   .rows{margin:0;padding:0;list-style:none}
   .row{display:flex;gap:20px;padding:13px 0;border-top:1px solid var(--rule);font-size:15px}
   .row:first-child{border-top:none}
+  .row:last-child{padding-bottom:0}
   .row-key{flex:0 0 132px;font-family:var(--mono);font-weight:600;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--accent-dark);padding-top:3px}
   .row-val{flex:1;min-width:0}
   .row-val strong{font-weight:500}
@@ -222,63 +256,57 @@
 <main>
   <section class="section wrap">
     <div class="section-head">
-      <p class="eyebrow">Research</p>
-      <h2>Working papers</h2>
+      <h2 class="section-title">Research</h2>
+      <h3 class="subsection-title">Working papers</h3>
     </div>
 
     <article class="paper">
       <span class="status status-jmp">Job market paper <span style="font-size:9px">&#9670;</span> manuscript in preparation</span>
       <h3>Competing for Space and Participation: Dynamic Bidder Management in Digital Out-of-Home RTB Platforms</h3>
       <p class="authors">with Ganesh Janakiraman and Vijay Mookerjee</p>
-      <p class="summary">Digital billboards sell ad slots by real-time auction, but their audiences are hyper-local: the ads on a screen shape who bids for it next. I characterize the optimal policy for a screen owner who must split scarce inventory between auction revenue today and self-advertising that will attract future bidders, and calibrate the model on transaction-level auction data.</p>
-    </article>
+</article>
 
     <article class="paper">
       <span class="status">Submitted to Decision Sciences</span>
       <h3>Win-Curves in Real-Time Bidding: A Micro-Foundation</h3>
       <p class="authors">with the late Milind Dawande, Ganesh Janakiraman, and Vijay Mookerjee</p>
-      <p class="summary">The win-curve maps a bid to the probability of winning an impression, and nearly every bidding algorithm takes it as given. I derive it from primitives for first-price auctions with budget-constrained bidders, give a stable procedure to compute it, and show that budget-aware reserve prices recover revenue a budget-agnostic policy leaves behind.</p>
-      <p class="venues"><span>CIST 2024</span> &middot; <span>INFORMS 2024</span> &middot; <span>Big XII+ MIS Research Symposium 2025</span> &middot; <span>POMS 2025</span></p>
+      <p class="venues"><a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=5221720" target="_blank" rel="noopener">SSRN</a></p>
+<p class="venues"><span>CIST 2024</span> &middot; <span>INFORMS 2024</span> &middot; <span>Big XII+ MIS Research Symposium 2025</span> &middot; <span>POMS 2025</span></p>
       <figure class="figure">
         <img src="assets/poster.jpg" alt="Shailender Joseph presented the Win-Curves poster at the INFORMS Annual Meeting">
         <figcaption>Presented this work at the INFORMS Annual Meeting.</figcaption>
       </figure>
     </article>
-  </section>
+  
 
-  <section class="section wrap">
-    <div class="section-head">
-      <p class="eyebrow">Research</p>
-      <h2>Work in Progress</h2>
+    <div class="subsection-block wip-block">
+      <h3 class="subsection-title">Work in Progress</h3>
     </div>
 
-    <article class="paper">
+<article class="paper">
 <span class="status">Working paper</span>
       <h3>Reimagining Digital Markets: Evaluating Platform Dominance and Network Alternatives</h3>
       <p class="authors">with Kai Sun, Ganesh Janakiraman, and Vijay Mookerjee</p>
-      <p class="summary">India's ONDC splits the functions of an e-commerce platform into independent buyer-side and seller-side apps. I show that decoupling alone leaves everyone worse off through double marginalization &mdash; and that the gains appear only when buyer-app entry stays open and sellers can run their own seller apps.</p>
-      <p class="venues"><span>CIST 2025</span> &middot; <span>INFORMS 2025</span> &middot; <span>DSI 2025</span> &middot; <span>POMS 2026</span></p>
+<p class="venues"><span>CIST 2025</span> &middot; <span>INFORMS 2025</span> &middot; <span>DSI 2025</span> &middot; <span>POMS 2026</span></p>
     </article>
 
     <article class="paper">
       <span class="status">Analysis underway</span>
       <h3>Making Cyber-insurance Accessible: Design and Evaluation of a Novel Approach to Determine Cyber-insurance Premiums</h3>
       <p class="authors">with Ganesh Janakiraman and Vijay Mookerjee</p>
-      <p class="summary">Firms often absorb a breach rather than file a claim, fearing reputational damage. I ask whether an insurer that prices with this claiming behavior in mind can lower what firms pay while protecting its own revenue &mdash; making coverage accessible to firms currently priced out.</p>
-    </article>
+</article>
 
     <article class="paper">
       <span class="status">Dataset obtained from an industry partner</span>
       <h3>Retrieve or Reason? Cost-Effective Routing in Hybrid AI Chatbots</h3>
       <p class="authors">with Aditya Karanam, Ganesh Janakiraman, and Vijay Mookerjee</p>
-      <p class="summary">Answering a user query by retrieval is cheap; reasoning with a large model is accurate but costly. This project studies how a chatbot operator should route between them to balance service quality against the cost of serving.</p>
-    </article>
+</article>
   </section>
 
   <section class="section wrap">
     <div class="section-head">
-      <p class="eyebrow">Teaching</p>
-      <h2>In the classroom</h2>
+      <h2 class="section-title">Teaching</h2>
+      <h3 class="subsection-title">In the classroom</h3>
     </div>
     <ul class="rows">
       <li class="row">
@@ -307,8 +335,8 @@
 
   <section class="section wrap">
     <div class="section-head">
-      <p class="eyebrow">Service</p>
-      <h2>Reviewing</h2>
+      <h2 class="section-title">Service</h2>
+      <h3 class="subsection-title">Reviewing</h3>
     </div>
     <ul class="rows">
       <li class="row">
@@ -324,8 +352,7 @@
 
   <section class="section wrap">
     <div class="section-head">
-      <p class="eyebrow">Before this</p>
-      <h2>Prior Experience</h2>
+      <h2 class="major-heading">Prior Experience</h2>
       <p class="section-note">I came to Information Systems from the laboratory bench, which is why I like problems that need both a model and data.</p>
     </div>
     <ul class="rows">
